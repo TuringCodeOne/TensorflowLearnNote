@@ -2,7 +2,7 @@
 #酸奶成本1元，酸奶利润9元
 #预测少了损失大
 
-#0.导入莫款生成数据集
+#0.导入模块生成数据集
 import tensorflow as tf
 import numpy as np
 BATCH_SIZE = 8
@@ -26,7 +26,7 @@ loss = tf.reduce_sum(tf.where(tf.greater(y,y_),(y-y_)*COST,(y_-y)*PROFIT))
 train_step = tf.train.GradientDescentOptimizer(0.001).minimize(loss)
 
 
-#3.执行绘画，进行训练
+#3.执行会话，进行训练
 with tf.Session() as sess:
 	init_op = tf.global_variables_initializer()
 	sess.run(init_op)
